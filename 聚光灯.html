@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .app {
+                margin: 100px auto;
+                width: 300px;
+                height: 300px;
+                border-radius: 5px;
+                background-color: #000;
+                text-align: center;
+                line-height: 300px;
+                font-size: 2em;
+                font-weight: 700;
+                color: #000;
+                position: relative;
+                overflow: hidden;
+            }
+            .app p {
+                position: relative;
+                z-index: 3;
+            }
+            .app .deng {
+                background-color: #fff;
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                top: 50%;
+                margin-top: -50px;
+                border-radius: 50%;
+                overflow: hidden;
+                animation: move 3s infinite;
+            }
+            .deng p {
+                line-height: 100px;
+            }
+            @keyframes move {
+                0% {
+                    left: 0;
+                }
+                50% {
+                    left: 200px;
+                }
+                100% {
+                    left: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="app">
+            <p>这是一个聚光灯效果</p>
+            <div class="deng"></div>
+        </div>
+    </body>
+</html>
