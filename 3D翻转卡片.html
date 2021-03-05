@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>3D旋转</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+
+                /* 取消选中 */
+                user-select: none;
+            }
+
+            body {
+                background-color: #496;
+                /* 视窗单位，1vh永远等于视窗的百分之一 */
+                height: 100vh;
+
+                /* 观察者距离 */
+                perspective: 1600px;
+
+                display: flex;
+
+                /* 设置主轴 */
+                flex-direction: column;
+                /* 主轴居中 */
+                justify-content: center;
+
+                align-items: center;
+            }
+            .box {
+                position: relative;
+                transform-style: preserve-3d;
+                animation: rotate-revers 1s cubic-bezier(0.76, -0.051, 0.29, 1.5) forwards;
+            }
+
+            .box:active {
+                animation: rotate 1s cubic-bezier(0.76, -0.051, 0.29, 1.5) forwards;
+            }
+
+            .box > div {
+                width: 300px;
+                height: 450px;
+                background-color: #fff;
+                /* 设置阴影 */
+                box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
+                /* 设置圆角 */
+                border-radius: 20px;
+                /* 文字居中 */
+                text-align: center;
+
+                /* 设置内部居中 */
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                /* 子元素保留3D转换 */
+                transform-style: preserve-3d;
+            }
+
+            .warpper {
+                position: absolute;
+            }
+
+            .onBack {
+                transform: rotateY(180deg);
+            }
+
+            /* 定义动画 */
+            @keyframes rotate {
+                0% {
+                    transform: rotateY(0deg);
+                }
+                100% {
+                    transform: rotateY(180deg);
+                }
+            }
+            @keyframes rotate-revers {
+                0% {
+                    transform: rotateY(180deg);
+                }
+                100% {
+                    transform: rotateY(0deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="warpper">暗转看看背面有啥</div>
+            <div class="onBack">
+                <p>点赞</p>
+                <p>右臂</p>
+                <p>爱情</p>
+            </div>
+        </div>
+    </body>
+</html>
